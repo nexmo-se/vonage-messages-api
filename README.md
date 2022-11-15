@@ -1,1 +1,1 @@
-# sample-app-messages-api
+# vonage-messages-api
