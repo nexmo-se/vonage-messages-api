@@ -1,0 +1,35 @@
+{
+  "name": "vonage-messages-api",
+  "version": "1.0.0",
+  "description": "Sample Code for Vonage Messages API in TypeScript to be used as reference",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexmo-se/vonage-messages-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nexmo-se/vonage-messages-api/issues"
+  },
+  "homepage": "https://github.com/nexmo-se/vonage-messages-api#readme",
+  "dependencies": {
+    "@vonage/server-sdk": "^2.11.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.9",
+    "concurrently": "^7.5.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
