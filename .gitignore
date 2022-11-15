@@ -2,6 +2,7 @@
 *.env
 *.key
 notes.txt
+/notes
 
 # Logs
 logs

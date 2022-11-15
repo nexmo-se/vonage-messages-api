@@ -3,14 +3,14 @@ import express, { Express, Request, Response } from 'express';
 let app = express();
 dotenv.config();
 let port = process.env.PORT;
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use(express.static('public'));
+import { sendMessage } from './vonage.js';
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Welcome to Express Server!');
+  let resp = sendMessage();
+  res.status(200).send(resp);
 });
 
 app.post('/webhooks/inbound', (req: Request, res: Response) => {
