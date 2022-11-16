@@ -10,4 +10,10 @@ npm run build
 
 npm run dev
 
-In browser, visit http://localhost:5001/ and a WhatsApp Text message will be sent
+To send a message:
+
+In browser, visit http://localhost:5001/sendMessage and a WhatsApp Text message will be sent
+
+To send a template
+
+In browser, visit http://localhost:5001/sendTemplate and a WhatsApp Template message will be sent

@@ -1,6 +1,8 @@
 import { Vonage } from '@vonage/server-sdk';
 import { Auth } from '@vonage/auth/dist/auth';
 import { Text } from '@vonage/messages/dist/classes/WhatsApp/Text';
+import { TemplateMessage } from '@vonage/messages/dist/classes/WhatsApp/TemplateMessage';
+
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -35,7 +37,6 @@ let auth = new Auth({
 });
 
 const vonage = new Vonage(auth);
-// console.log('vonage', vonage);
 
 export function sendMessage() {
   vonage.messages
@@ -50,5 +51,22 @@ export function sendMessage() {
       console.log(resp.message_uuid);
       return resp.message_uuid;
     })
+    .catch((err) => console.error(err));
+}
+
+export function sendTemplate() {
+  vonage.messages
+    .send(
+      new TemplateMessage(
+        {
+          name: `${WHATSAPP_TEMPLATE_NAMESPACE}:${WHATSAPP_TEMPLATE_NAME}`,
+          parameters: ['Vonage Verification', '64873', '10'],
+        },
+        TO_NUMBER,
+        WHATSAPP_NUMBER,
+        'en'
+      )
+    )
+    .then((resp) => console.log(resp.message_uuid))
     .catch((err) => console.error(err));
 }
