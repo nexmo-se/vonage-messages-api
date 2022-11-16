@@ -6,7 +6,7 @@ let port = process.env.PORT;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
-import { sendMessage, sendTemplate } from './vonage.js';
+import { sendMessage, sendTemplate, sendCustom } from './vonage.js';
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('Welcome to Express!');
@@ -19,6 +19,11 @@ app.get('/sendMessage', (req: Request, res: Response) => {
 
 app.get('/sendTemplate', (req: Request, res: Response) => {
   let resp = sendTemplate();
+  res.status(200).send(resp);
+});
+
+app.get('/sendCustom', (req: Request, res: Response) => {
+  let resp = sendCustom();
   res.status(200).send(resp);
 });
 

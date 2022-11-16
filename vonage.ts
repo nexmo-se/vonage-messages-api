@@ -2,6 +2,7 @@ import { Vonage } from '@vonage/server-sdk';
 import { Auth } from '@vonage/auth/dist/auth';
 import { Text } from '@vonage/messages/dist/classes/WhatsApp/Text';
 import { TemplateMessage } from '@vonage/messages/dist/classes/WhatsApp/TemplateMessage';
+import { CustomMessage } from '@vonage/messages/dist/classes/WhatsApp/CustomMessage';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -61,6 +62,28 @@ export function sendTemplate() {
         {
           name: `${WHATSAPP_TEMPLATE_NAMESPACE}:${WHATSAPP_TEMPLATE_NAME}`,
           parameters: ['Vonage Verification', '64873', '10'],
+        },
+        TO_NUMBER,
+        WHATSAPP_NUMBER,
+        'en'
+      )
+    )
+    .then((resp) => console.log(resp.message_uuid))
+    .catch((err) => console.error(err));
+}
+
+export function sendCustom() {
+  vonage.messages
+    .send(
+      new CustomMessage(
+        {
+          name: `${WHATSAPP_TEMPLATE_NAMESPACE}:${WHATSAPP_TEMPLATE_NAME}`,
+          components: [
+            {
+              type: 'BODY',
+              parameters: ['value1', 'value2'],
+            },
+          ],
         },
         TO_NUMBER,
         WHATSAPP_NUMBER,
