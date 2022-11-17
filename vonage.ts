@@ -83,7 +83,7 @@ export function sendCustom() {
             name: `${WHATSAPP_TEMPLATE_NAME}`,
             language: {
               policy: 'deterministic',
-              code: 'en',
+              code: 'en_GB',
             },
             components: [
               {
@@ -109,23 +109,3 @@ export function sendCustom() {
     .then((resp) => console.log(resp.message_uuid))
     .catch((err) => console.error(err));
 }
-
-// vonage.messages
-//     .send(
-//       new CustomMessage(
-//         {
-//           name: `${WHATSAPP_TEMPLATE_NAMESPACE}:${WHATSAPP_TEMPLATE_NAME}`,
-//           components: [
-//             {
-//               type: 'BODY',
-//               parameters: ['value1', 'value2'],
-//             },
-//           ],
-//         },
-//         TO_NUMBER,
-//         WHATSAPP_NUMBER,
-//         'en'
-//       )
-//     )
-//     .then((resp) => console.log(resp.message_uuid))
-//     .catch((err) => console.error(err));
