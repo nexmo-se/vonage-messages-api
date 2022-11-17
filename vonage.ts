@@ -77,19 +77,55 @@ export function sendCustom() {
     .send(
       new CustomMessage(
         {
-          name: `${WHATSAPP_TEMPLATE_NAMESPACE}:${WHATSAPP_TEMPLATE_NAME}`,
-          components: [
-            {
-              type: 'BODY',
-              parameters: ['value1', 'value2'],
+          type: 'template',
+          template: {
+            namespace: `${WHATSAPP_TEMPLATE_NAMESPACE}`,
+            name: `${WHATSAPP_TEMPLATE_NAME}`,
+            language: {
+              policy: 'deterministic',
+              code: 'en',
             },
-          ],
+            components: [
+              {
+                type: 'body',
+                parameters: [
+                  {
+                    type: 'text',
+                    text: '*Ski Trip*',
+                  },
+                  {
+                    type: 'text',
+                    text: '2019-12-26',
+                  },
+                ],
+              },
+            ],
+          },
         },
         TO_NUMBER,
-        WHATSAPP_NUMBER,
-        'en'
+        WHATSAPP_NUMBER
       )
     )
     .then((resp) => console.log(resp.message_uuid))
     .catch((err) => console.error(err));
 }
+
+// vonage.messages
+//     .send(
+//       new CustomMessage(
+//         {
+//           name: `${WHATSAPP_TEMPLATE_NAMESPACE}:${WHATSAPP_TEMPLATE_NAME}`,
+//           components: [
+//             {
+//               type: 'BODY',
+//               parameters: ['value1', 'value2'],
+//             },
+//           ],
+//         },
+//         TO_NUMBER,
+//         WHATSAPP_NUMBER,
+//         'en'
+//       )
+//     )
+//     .then((resp) => console.log(resp.message_uuid))
+//     .catch((err) => console.error(err));

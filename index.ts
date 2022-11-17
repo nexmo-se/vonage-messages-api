@@ -1,8 +1,10 @@
 import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
+import logger from 'morgan';
 let app = express();
 dotenv.config();
 let port = process.env.PORT;
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
