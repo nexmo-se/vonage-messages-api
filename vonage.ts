@@ -65,7 +65,7 @@ export function sendTemplate() {
         },
         TO_NUMBER,
         WHATSAPP_NUMBER,
-        'en'
+        'en_GB'
       )
     )
     .then((resp) => console.log(resp.message_uuid))
