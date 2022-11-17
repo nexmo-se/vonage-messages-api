@@ -1,6 +1,6 @@
 {
   "name": "vonage-messages-api",
-  "version": "1.0.0",
+  "version": "3.0.2",
   "description": "Sample Code for Vonage Messages API in TypeScript to be used as reference",
   "main": "index.js",
   "scripts": {

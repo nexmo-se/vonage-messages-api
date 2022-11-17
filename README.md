@@ -1,6 +1,6 @@
 # vonage-messages-api
 
-This source code works for `"@vonage/server-sdk": "^3.0.1",`
+This source code works for `"@vonage/server-sdk": "^3.0.2",`
 
 populate and rename `env-sample` to `.env`
 
