@@ -39,7 +39,7 @@ let auth = new Auth({
 
 const vonage = new Vonage(auth);
 
-export function sendMessage() {
+export function sendText() {
   vonage.messages
     .send(
       new Text(

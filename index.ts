@@ -8,14 +8,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
-import { sendMessage, sendTemplate, sendCustom } from './vonage.js';
+import { sendText, sendTemplate, sendCustom } from './vonage.js';
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('Welcome to Express!');
 });
 
-app.get('/sendMessage', (req: Request, res: Response) => {
-  let resp = sendMessage();
+app.get('/sendText', (req: Request, res: Response) => {
+  let resp = sendText();
   res.status(200).send(resp);
 });
 

@@ -14,7 +14,7 @@ npm run dev
 
 To send a Text:
 
-In browser, visit http://localhost:5001/sendMessage and a Text message will be sent
+In browser, visit http://localhost:5001/sendText and a Text message will be sent
 
 To send a TemplateMessage
 
